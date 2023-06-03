@@ -1,0 +1,48 @@
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <h3 class="mb-5">Log In</h3>
+
+            <form [formGroup]="loginForm">
+              <div class="form-outline mb-4">
+                <input [class.is-invalid]="
+                loginForm.get('email_Id')?.invalid &&
+                loginForm.get('email_Id')?.touched"
+                type="email" id="typeEmailX-2" class="form-control form-control-lg" [formControlName]="'email_Id'"/>
+                <div class="text-danger" *ngIf="
+                loginForm.get('email_Id')?.invalid &&
+                loginForm.get('email_Id')?.touched">Please Check Your Email</div>
+                <label class="form-label" for="typeEmailX-2">Email</label>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input [class.is-invalid]="
+                loginForm.get('password')?.invalid &&
+                loginForm.get('password')?.touched"
+                type="password" id="typePasswordX-2" class="form-control form-control-lg" [formControlName]="'password'"/>
+                <div class="text-danger" *ngIf="
+                loginForm.get('password')?.invalid &&
+                loginForm.get('password')?.touched">Please Check Your Password</div>
+                <label class="form-label" for="typePasswordX-2">Password</label>
+              </div>          
+            </form>
+
+            <button  class="btn btn-primary btn-lg btn-block" type="submit"  (click)="login()">Login</button>
+
+            <hr class="my-4">          
+
+            <div>
+              <p class="mb-0">Don't have an account? <span class="text-black-100 fw-bold" (click)="goToLogin()">Sign Up</span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
